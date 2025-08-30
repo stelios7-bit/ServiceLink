@@ -1,4 +1,4 @@
-# 🏡 Service Booking System (UrbanClap Clone)
+# 🏡 Service Booking System 
 
 [![Java](https://img.shields.io/badge/Java-17-blue?logo=java&logoColor=white)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0-green?logo=springboot)](https://spring.io/projects/spring-boot)
