@@ -4,11 +4,10 @@ import com.stelios.ServiceLink.dto.ProviderDto;
 import com.stelios.ServiceLink.entity.Service;
 import com.stelios.ServiceLink.repository.ServiceProviderRepository;
 import com.stelios.ServiceLink.repository.ServiceRepository;
+import com.stelios.ServiceLink.service.ExploreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,10 +15,12 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/explore")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ExploreController {
 
     private final ServiceRepository serviceRepository;
     private final ServiceProviderRepository providerRepository;
+    private final ExploreService exploreService;
 
     @GetMapping("/services")
     public ResponseEntity<List<Service>> getAllServices() {
@@ -38,5 +39,9 @@ public class ExploreController {
                         provider.getRating()))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(providers);
+    }
+    @GetMapping("/services/{serviceId}/providers")
+    public ResponseEntity<List<ProviderDto>> getProvidersByService(@PathVariable Long serviceId) {
+        return ResponseEntity.ok(exploreService.getProvidersByService(serviceId));
     }
 }

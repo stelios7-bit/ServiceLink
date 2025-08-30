@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -29,4 +31,11 @@ public class ServiceProvider {
 
     // This will be an average rating, calculated and updated periodically.
     private double rating;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "provider_services",
+            joinColumns = @JoinColumn(name = "provider_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id"))
+    private Set<Service> services;
 }
