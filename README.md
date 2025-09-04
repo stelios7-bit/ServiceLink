@@ -58,4 +58,4 @@ Built with **Spring Boot, MySQL, Hibernate ORM**, and follows clean modular desi
 - **Requests Table** → user requests with slot, description, address, and status  
 - **Ratings Table** → ratings and feedback  
 
-
+#Note - Earlier the name of the project was ServiceLink. Now it is renamed to UrbanEase.
