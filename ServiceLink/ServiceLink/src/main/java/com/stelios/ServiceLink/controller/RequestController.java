@@ -13,7 +13,6 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/api/requests")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173")
 public class RequestController {
 
     private final RequestService requestService;
